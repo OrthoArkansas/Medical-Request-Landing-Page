@@ -1,0 +1,76 @@
+/* ========== Fonts ========== */
+
+
+
+/* ========== CSS Reset ========== */
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ========== Root Variables ========== */
+:root {
+
+    /* ========== Colors ========== */
+    /* Primary */
+    --white: #ffffff;
+    --blue: #00A4DF;
+    --dark-blue: #005289;
+    --orange: #F4A336;
+    --text-color: #00005A;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1020px;
+    height: 640px;
+    background-color: var(--white);
+    border-radius: 2.5rem;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.inner-container {
+    position: absolute;
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.forms-wrapper {
+    position: absolute;
+    height: 100%;
+    width: 45%;
+    top: 0;
+    left: 0;
+}
+
+.forms-image {
+    position: absolute;
+    height: 100%;
+    width: 55%;
+    top: 0;
+    left: 45%;
+    background-color: var(--blue);
+    border-radius: 2rem;
+}
