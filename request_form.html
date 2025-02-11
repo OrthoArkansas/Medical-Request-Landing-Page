@@ -16,8 +16,7 @@
 
     <div class="form-container">
         <div class="form-row">
-            <img src="assets/images/logo.svg" alt="">
-            <img src="assets/images/logo.svg" alt="">
+            <img src="assets/images/Ortho Logo Sideways.png" alt="">
         </div>
         <h1 class="form-title">Medical Request Authorization Form</h1>
 
@@ -49,10 +48,10 @@
                         <label class="required">DOB</label>
                         <input type="date" required>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>SSN</label>
                         <input type="text" placeholder="XXX-XX-XXXX">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label>Phone</label>
                         <input type="tel">
@@ -64,33 +63,40 @@
             <div class="form-section">
                 <h2 class="section-title">What would you like released?</h2>
                 <div class="checkbox-grid">
+                    <!-- All Records -->
                     <div class="checkbox-item">
                         <input type="checkbox" id="allRecords">
                         <label for="allRecords">All Records</label>
                     </div>
+                    <!-- Office/Clinic Notes -->
                     <div class="checkbox-item">
                         <input type="checkbox" id="officeNotes">
                         <label for="allRecords">Office/Clinic Notes</label>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="operativeReports">
-                            <label for="allRecords">Operative Reports</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="images">
-                            <label for="allRecords">Images (X-Ray, MRI, etc.)</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="labResults">
-                            <label for="allRecords">Lab/Pathology Results</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="radiologyReports">
-                            <label for="allRecords">Radiology Reports</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="previousRecords">
-                            <label for="allRecords">Last two years of records</label>
-                        </div>
+                    </div>
+                    <!-- Operative Reports -->
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="operativeReports">
+                        <label for="allRecords">Operative Reports</label>
+                    </div>
+                    <!-- Images -->
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="images">
+                        <label for="allRecords">Images (X-Ray, MRI, etc.)</label>
+                    </div>
+                    <!-- Lab Results -->
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="labResults">
+                        <label for="allRecords">Lab/Pathology Results</label>
+                    </div>
+                    <!-- Radiology Reports -->
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="radiologyReports">
+                        <label for="allRecords">Radiology Reports</label>
+                    </div>
+                    <!-- Previous Records -->
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="previousRecords">
+                        <label for="allRecords">Last two years of records</label>
                     </div>
                 </div>
             </div>
@@ -99,14 +105,17 @@
             <div class="form-section">
                 <h2 class="section-title">Delivery Methods</h2>
                 <div class="delivery-methods">
+                    <!-- Email -->
                     <div class="checkbox-item">
                         <input type="radio" name="delivery" id="email">
                         <label for="email">Email</label>
                     </div>
+                    <!-- Fax -->
                     <div class="checkbox-item">
                         <input type="radio" name="delivery" id="fax">
                         <label for="fax">Fax</label>
                     </div>
+                    <!-- Mail -->
                     <div class="checkbox-item">
                         <input type="radio" name="delivery" id="mail">
                         <label for="fax">Postage</label>
@@ -120,16 +129,16 @@
                 <p class="disclaimer">
                     I hereby authorize MediCopy and its affiliates to release or disclose to the person(s) or organization listed above, all medical records requested, including any specially protected records such as those relating to psychological or psychiatric impairments, drug abuse, alcoholism, sickle cell anemia or HIV infection, unless otherwise noted.
                 </p>
-
-                <!-- Signature Pad -->
-             <section class="signature-component">
-                <canvas id="signature-pad" width="400" height="200"></canvas>
-                <div>
-                    <button id="clear">Clear</button>
+            
+                <!-- Signature Pad Container -->
+                <div class="signature-component">
+                    <p class="signature-prompt">Please sign below using mouse, touch, or stylus</p>
+                    <canvas id="signature-pad"></canvas>
+                    <div class="signature-actions">
+                        <button type="button" id="clear">Clear</button>
+                        <button type="submit" id="submit">Submit Authorization</button>
+                    </div>
                 </div>
-             </section>
-
-                <button type="submit">Submit Authorization</button>
             </div>
         </form>
     </div>
