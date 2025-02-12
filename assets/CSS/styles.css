@@ -1,7 +1,5 @@
 /* ========== Fonts ========== */
 
-
-
 /* ========== CSS Reset ========== */
 *,
 *::before,
@@ -11,14 +9,41 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
+    line-height: 1.5;
     padding: 1rem;
-    background: var(--white);
+    background-color: var(--white);
+}
+
+/* ========== Root Variables ========== */
+:root {
+    /* ========== Colors ========== */
+    --white: #ffffff;
+    --blue: #00A4DF;
+    --dark-blue: #005289;
+    --orange: #F4A336;
+    --text-color: #202020;
 }
 
 /* ========== Reusable CSS ========== */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
 /* From Uiverse.io by alexroumi */ 
 button {
     padding: 10px 20px;
@@ -59,49 +84,23 @@ button {
     width: 100%;
    }
 
-/* ========== Root Variables ========== */
-:root {
-
-    /* ========== Colors ========== */
-    /* Primary */
-    --white: #ffffff;
-    --blue: #00A4DF;
-    --dark-blue: #005289;
-    --orange: #F4A336;
-    --text-color: #202020;
-}
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    background: var(--white);
-    padding: 1rem;
-    border-radius: .5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.form-row {
-    display: flex;
-    width: 100%;
-    /* background-color: red; */
-    align-items: center;
-    justify-content: center;
-}
-
-.form-row img {
+/* ========== Form ========== */
+.form-logo img {
     max-width: 50%;
     height: auto;
     margin-bottom: 1rem;
 }
 
+.form-logo {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
 .form-title {
-    /* text-align: center; */
     color: var(--text-color);
-    padding: .5rem;
+    font-size: 2rem;
 }
 
 .form-section {
@@ -111,7 +110,7 @@ button {
 }
 
 .section-title {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
     color: var(--text-color);
 }
@@ -119,7 +118,8 @@ button {
 .form-section .section-title{
     background-color: var(--dark-blue);
     color: var(--white);
-    padding-left: .5rem;
+    /* padding in this order: top | right | bottom | left */
+    padding: .5rem 0 .5rem .5rem;
     border-radius: 5px;
 }
 
@@ -224,7 +224,15 @@ input[type="date"] {
 }
 
 @media screen and (max-width: 640px) {
-    
+    .form-title {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+    }
 }
 /* End Responsive Queries */
-

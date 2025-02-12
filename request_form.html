@@ -4,65 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OrthoArkansas Medical Request Form</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>OrthoArkansas | Medical Request Form</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/CSS/styles.css">
     <!-- Remixicon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-
 </head>
 
 <body>
 
+    <!-- Form Container -->
     <div class="form-container">
-        <div class="form-row">
-            <img src="assets/images/Ortho Logo Sideways.png" alt="">
+        <!-- Form Logo -->
+        <div class="form-logo">
+            <img src="assets/Images/Ortho Logo Sideways.png" alt="OrthoArkansas Logo">
         </div>
+        <!-- Form Title -->
         <h1 class="form-title">Medical Request Authorization Form</h1>
-
-        <form id="medicalReleaseForm">
+        <!-- Medical Release Form Start -->
+        <form action="#" id="medicalReleaseForm">
             <!-- Form Section 1 -->
             <div class="form-section">
-                <h2 class="section-title">Where are the records being released from?</h2>
+                <!-- Form Sub Heading -->
+                <h2 class="section-title">Facility of release?</h2>
+                <!-- Section 1 Form Grid -->
                 <div class="form-grid">
+                    <!-- Form Group Input -->
                     <div class="form-group">
                         <label class="required">Facility Name</label>
                         <input type="text" required>
                     </div>
+                    <!-- Form Group Input -->
                     <div class="form-group">
-                        <label>Provider Name(s)</label>
-                        <input type="text">
+                        <label class="required">Provider Name(s)</label>
+                        <input type="text" required>
                     </div>
                 </div>
             </div>
 
             <!-- Form Section 2 -->
             <div class="form-section">
-                <h2 class="section-title">Tell us about the patient</h2>
+                <!-- Form Sub Heading -->
+                <h2 class="section-title">Provide patient details</h2>
+                <!-- Section 2 Form Grid -->
                 <div class="form-grid">
+                    <!-- Name Group Input -->
                     <div class="form-group">
-                        <label class="required">Name</label>
+                        <label class="required">Full Name</label>
                         <input type="text" required>
                     </div>
+                    <!-- DOB Group Input -->
                     <div class="form-group">
                         <label class="required">DOB</label>
                         <input type="date" required>
                     </div>
-                    <!-- <div class="form-group">
-                        <label>SSN</label>
-                        <input type="text" placeholder="XXX-XX-XXXX">
-                    </div> -->
+                    <!-- Phone Group Input -->
                     <div class="form-group">
-                        <label>Phone</label>
-                        <input type="tel">
+                        <label class="required">Phone</label>
+                        <input type="tel" required>
                     </div>
                 </div>
             </div>
 
             <!-- Form Section 3 -->
             <div class="form-section">
-                <h2 class="section-title">What would you like released?</h2>
+                <!-- Form Sub Heading -->
+                <h2 class="section-title">Choose records to release:</h2>
+                <!-- Checkbox Grid -->
                 <div class="checkbox-grid">
+                    <!--Checkbox items -->
                     <!-- All Records -->
                     <div class="checkbox-item">
                         <input type="checkbox" id="allRecords">
@@ -71,39 +82,41 @@
                     <!-- Office/Clinic Notes -->
                     <div class="checkbox-item">
                         <input type="checkbox" id="officeNotes">
-                        <label for="allRecords">Office/Clinic Notes</label>
+                        <label for="officeNotes">Office/Clinic Notes</label>
                     </div>
                     <!-- Operative Reports -->
                     <div class="checkbox-item">
                         <input type="checkbox" id="operativeReports">
-                        <label for="allRecords">Operative Reports</label>
+                        <label for="operativeReports">Operative Reports</label>
                     </div>
                     <!-- Images -->
                     <div class="checkbox-item">
                         <input type="checkbox" id="images">
-                        <label for="allRecords">Images (X-Ray, MRI, etc.)</label>
+                        <label for="images">Images (X-Ray, MRI, etc.)</label>
                     </div>
                     <!-- Lab Results -->
                     <div class="checkbox-item">
                         <input type="checkbox" id="labResults">
-                        <label for="allRecords">Lab/Pathology Results</label>
+                        <label for="labResults">Lab/Pathology Results</label>
                     </div>
                     <!-- Radiology Reports -->
                     <div class="checkbox-item">
                         <input type="checkbox" id="radiologyReports">
-                        <label for="allRecords">Radiology Reports</label>
+                        <label for="radiologyReports">Radiology Reports</label>
                     </div>
                     <!-- Previous Records -->
                     <div class="checkbox-item">
                         <input type="checkbox" id="previousRecords">
-                        <label for="allRecords">Last two years of records</label>
+                        <label for="previousRecords">Last two years of records</label>
                     </div>
                 </div>
             </div>
 
             <!-- Form Section 4 -->
             <div class="form-section">
+                <!-- Form Sub Heading-->
                 <h2 class="section-title">Delivery Methods</h2>
+                <!-- Delivery Methods Radio Style -->
                 <div class="delivery-methods">
                     <!-- Email -->
                     <div class="checkbox-item">
@@ -118,21 +131,28 @@
                     <!-- Mail -->
                     <div class="checkbox-item">
                         <input type="radio" name="delivery" id="mail">
-                        <label for="fax">Postage</label>
+                        <label for="mail">Postage</label>
                     </div>
                 </div>
             </div>
 
             <!-- Signature Section -->
             <div class="section signature-section">
+                <!-- Signature Sub Heading -->
                 <h2 class="section-title">Patient's Signature</h2>
+                <!-- Disclaimer -->
                 <p class="disclaimer">
-                    I hereby authorize MediCopy and its affiliates to release or disclose to the person(s) or organization listed above, all medical records requested, including any specially protected records such as those relating to psychological or psychiatric impairments, drug abuse, alcoholism, sickle cell anemia or HIV infection, unless otherwise noted.
+                    I hereby authorize MediCopy and its affiliates to release or disclose to the person(s) or
+                    organization listed above, all medical records requested, including any specially protected records
+                    such as those relating to psychological or psychiatric impairments, drug abuse, alcoholism, sickle
+                    cell anemia or HIV infection, unless otherwise noted.
                 </p>
-            
+
                 <!-- Signature Pad Container -->
                 <div class="signature-component">
-                    <p class="signature-prompt">Please sign below using mouse, touch, or stylus</p>
+                    <p class="signature-prompt">
+                        Please sign below using mouse, touch, or stylus
+                    </p>
                     <canvas id="signature-pad"></canvas>
                     <div class="signature-actions">
                         <button type="button" id="clear">Clear</button>
@@ -143,10 +163,8 @@
         </form>
     </div>
 
-
-    <!-- Javascript File -->
-    <script src="assets/JS/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2"></script>
+    <!-- JavaScript File -->
+     <script src="assets/JS/main.js"></script>
 </body>
 
 </html>
