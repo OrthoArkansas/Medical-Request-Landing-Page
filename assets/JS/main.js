@@ -1,17 +1,16 @@
-// Add this to your main.js file
 class SignaturePad {
     constructor(canvas) {
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
         this.isDrawing = false;
         this.points = [];
-
-        // Set canvas size with higher resolution for retina displays
-        this.resizeCanvas();
-
+        
+        // Set canvas size once
+        this.setCanvasSize();
+        
         // Bind events
         this.bindEvents();
-
+        
         // Drawing style
         this.ctx.strokeStyle = '#000';
         this.ctx.lineWidth = 2;
@@ -19,16 +18,11 @@ class SignaturePad {
         this.ctx.lineJoin = 'round';
     }
 
-    resizeCanvas() {
-        const rect = this.canvas.parentNode.getBoundingClientRect();
-        const dpr = window.devicePixelRatio || 1;
-
-        this.canvas.width = rect.width * dpr;
-        this.canvas.height = rect.height * dpr;
-
-        this.ctx.scale(dpr, dpr);
-        this.canvas.style.width = `${rect.width}px`;
-        this.canvas.style.height = `${rect.height}px`;
+    setCanvasSize() {
+        // Set the canvas dimensions to match CSS size
+        const rect = this.canvas.getBoundingClientRect();
+        this.canvas.width = rect.width;
+        this.canvas.height = rect.height;
     }
 
     bindEvents() {
@@ -42,9 +36,6 @@ class SignaturePad {
         this.canvas.addEventListener('touchstart', this.handleStart.bind(this));
         this.canvas.addEventListener('touchmove', this.handleMove.bind(this));
         this.canvas.addEventListener('touchend', this.handleEnd.bind(this));
-
-        // Window resize event
-        window.addEventListener('resize', this.resizeCanvas.bind(this));
     }
 
     handleStart(event) {
@@ -59,10 +50,10 @@ class SignaturePad {
     handleMove(event) {
         event.preventDefault();
         if (!this.isDrawing) return;
-
+        
         const pos = this.getPointerPosition(event);
         this.points.push(pos);
-
+        
         if (this.points.length > 3) {
             const lastTwoPoints = this.points.slice(-2);
             const controlPoint = lastTwoPoints[0];
@@ -70,7 +61,7 @@ class SignaturePad {
                 x: (lastTwoPoints[0].x + lastTwoPoints[1].x) / 2,
                 y: (lastTwoPoints[0].y + lastTwoPoints[1].y) / 2,
             };
-
+            
             this.ctx.quadraticCurveTo(
                 controlPoint.x,
                 controlPoint.y,
@@ -78,7 +69,7 @@ class SignaturePad {
                 endPoint.y
             );
             this.ctx.stroke();
-
+            
             this.ctx.beginPath();
             this.ctx.moveTo(endPoint.x, endPoint.y);
         }
@@ -114,7 +105,7 @@ class SignaturePad {
 }
 
 // Initialize signature pad when DOM is loaded
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const canvas = document.getElementById('signature-pad');
     const signaturePad = new SignaturePad(canvas);
     const clearButton = document.getElementById('clear');
@@ -127,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Form submission handler
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
 
         // Check if signature is empty
