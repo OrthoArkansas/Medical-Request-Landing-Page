@@ -121,21 +121,19 @@
                 <h2 class="section-title">Delivery Methods</h2>
                 <!-- Delivery Methods Radio Style -->
                 <div class="delivery-methods">
-                    <!-- Email -->
-                    <div class="checkbox-item">
-                        <input type="radio" name="delivery" id="email">
-                        <label for="email">Email</label>
-                    </div>
-                    <!-- Fax -->
-                    <div class="checkbox-item">
-                        <input type="radio" name="delivery" id="fax">
-                        <label for="fax">Fax</label>
-                    </div>
-                    <!-- Mail -->
-                    <div class="checkbox-item">
-                        <input type="radio" name="delivery" id="mail">
-                        <label for="mail">Postage</label>
-                    </div>
+                    <label for="options">Choose an option:</label>
+                    <select id="options" name="options" onChange="showInputField()">
+                        <option value="option1" selected>-- Select --</option>
+                        <option value="option1">Email</option>
+                        <option value="option1">Fax</option>
+                        <option value="option1">Postage</option>
+                    </select>
+
+                    <!-- Input Container -->
+                     <div id="inputContainer">
+                        <label id="dynamicLabel" for="userInput"></label>
+                        <input type="text" id="userInput" name="userInput" required>
+                     </div>
                 </div>
             </div>
 
@@ -169,6 +167,7 @@
     <!-- JavaScript File -->
     <script src="assets/JS/main.js"></script>
     <script src="assets/JS/form.js"></script>
+    <script src="assets/JS/delivery.js"></script>
 </body>
 
 </html>

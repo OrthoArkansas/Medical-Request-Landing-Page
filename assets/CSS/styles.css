@@ -171,7 +171,14 @@ input[type="date"] {
 .delivery-methods {
     display: flex;
     gap: 1rem;
+    /* justify-content: center;
+    align-items: center; */
     flex-wrap: wrap;
+}
+
+#inputContainer {
+    display: none;
+    margin-top: 1rem;
 }
 
 
