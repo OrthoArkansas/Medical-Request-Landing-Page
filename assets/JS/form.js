@@ -26,8 +26,8 @@ async function modifyPdf() {
     console.log(fieldData);
 
     // Fetch an existing PDF document
-    const url = 'https://pdf-lib.js.org/assets/with_update_sections.pdf';
-    const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
+    const path = 'assets/Forms/OrthoArkansas_Authorization_Medical_Records.pdf';
+    const existingPdfBytes = await fetch(path).then(res => res.arrayBuffer());
 
     // Load a PDFDocument from the existing PDF bytes
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
