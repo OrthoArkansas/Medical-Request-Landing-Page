@@ -23,7 +23,6 @@ async function modifyPdf() {
 
     // Fetch the field data from the form
     const fieldData = getFieldData();
-    console.log(fieldData);
 
     // Fetch an existing PDF document
     const path = 'assets/Forms/OrthoArkansas_Authorization_Medical_Records.pdf';
@@ -50,44 +49,44 @@ async function modifyPdf() {
         x: 130,
         y: 575,
         size: 12,
+        color: rgb(0.95, 0.1, 0.1),
     })
 
-    // Draw Provider Name on the PDF
-    firstPage.drawText(fieldData.providerName, {
-        x: 330,
-        y: 575,
-        size: 12,
-    })
+    // // Draw Provider Name on the PDF
+    // firstPage.drawText(fieldData.providerName, {
+    //     x: 330,
+    //     y: 575,
+    //     size: 12,
+    // })
 
-    // Draw Full Name on the PDF
-    firstPage.drawText(fieldData.fullName, {
-        x: 125,
-        y: 500,
-        size: 12,
-    })
+    // // Draw Full Name on the PDF
+    // firstPage.drawText(fieldData.fullName, {
+    //     x: 125,
+    //     y: 500,
+    //     size: 12,
+    // })
 
-    // Draw Date of Birth on the PDF
-    firstPage.drawText(fieldData.dateOfBirth, {
-        x: 250,
-        y: 500,
-        size: 12,
-    })
+    // // Draw Date of Birth on the PDF
+    // firstPage.drawText(fieldData.dateOfBirth, {
+    //     x: 250,
+    //     y: 500,
+    //     size: 12,
+    // })
     
-    // Draw Telephone Number on the PDF
-    firstPage.drawText(fieldData.telephoneNumber, {
-        x: 125,
-        y: 400,
-        size: 12,
-    })
-    // Draw the signature on the PDF
-    firstPage.drawImage(signatureImage, {
-        x: 100,
-        y: 50,
-        width: 200,
-        height: 75,
-    });
+    // // Draw Telephone Number on the PDF
+    // firstPage.drawText(fieldData.telephoneNumber, {
+    //     x: 125,
+    //     y: 400,
+    //     size: 12,
+    // })
 
-
+    // // Draw the signature on the PDF
+    // firstPage.drawImage(signatureImage, {
+    //     x: 100,
+    //     y: 50,
+    //     width: 200,
+    //     height: 75,
+    // });
 
     // Serialize the PDFDocument to bytes (a Uint8Array)
     const pdfBytes = await pdfDoc.save();
