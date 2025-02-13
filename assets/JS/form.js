@@ -71,7 +71,7 @@ async function modifyPdf() {
     // Draw Date of Birth on the PDF
     firstPage.drawText(fieldData.dateOfBirth, {
         x: 310,
-        y: 605,
+        y: 612,
         size: 10,
         color: rgb(0.95, 0.1, 0.1),
     })
@@ -86,10 +86,10 @@ async function modifyPdf() {
 
     // Draw the signature on the PDF
     firstPage.drawImage(signatureImage, {
-        x: 115,
+        x: 120,
         y: 50,
-        width: 200,
-        height: 75,
+        width: 150,
+        height: 50,
     });
 
     // Serialize the PDFDocument to bytes (a Uint8Array)
