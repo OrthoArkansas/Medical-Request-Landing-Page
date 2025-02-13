@@ -63,7 +63,7 @@ async function modifyPdf() {
     // Draw Full Name on the PDF
     firstPage.drawText(fieldData.fullName, {
         x: 80,
-        y: 600,
+        y: 605,
         size: 10,
         color: rgb(0.95, 0.1, 0.1),
     })
@@ -71,7 +71,7 @@ async function modifyPdf() {
     // Draw Date of Birth on the PDF
     firstPage.drawText(fieldData.dateOfBirth, {
         x: 310,
-        y: 600,
+        y: 605,
         size: 10,
         color: rgb(0.95, 0.1, 0.1),
     })
@@ -79,18 +79,18 @@ async function modifyPdf() {
     // Draw Telephone Number on the PDF
     firstPage.drawText(fieldData.telephoneNumber, {
         x: 90,
-        y: 490,
+        y: 515,
         size: 10,
         color: rgb(0.95, 0.1, 0.1),
     })
 
-    // // Draw the signature on the PDF
-    // firstPage.drawImage(signatureImage, {
-    //     x: 100,
-    //     y: 50,
-    //     width: 200,
-    //     height: 75,
-    // });
+    // Draw the signature on the PDF
+    firstPage.drawImage(signatureImage, {
+        x: 115,
+        y: 50,
+        width: 200,
+        height: 75,
+    });
 
     // Serialize the PDFDocument to bytes (a Uint8Array)
     const pdfBytes = await pdfDoc.save();
