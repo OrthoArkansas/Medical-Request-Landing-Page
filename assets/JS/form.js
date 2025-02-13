@@ -47,25 +47,26 @@ async function modifyPdf() {
     // Draw Facility Name on the PDF'
     firstPage.drawText(fieldData.facilityName, {
         x: 110,
-        y: 700,
+        y: 725,
         size: 10,
         color: rgb(0.95, 0.1, 0.1),
     })
 
     // Draw Provider Name on the PDF
     firstPage.drawText(fieldData.providerName, {
-        x: 375,
-        y: 700,
+        x: 400,
+        y: 725,
         size: 10,
         color: rgb(0.95, 0.1, 0.1),
     })
 
-    // // Draw Full Name on the PDF
-    // firstPage.drawText(fieldData.fullName, {
-    //     x: 125,
-    //     y: 500,
-    //     size: 10,
-    // })
+    // Draw Full Name on the PDF
+    firstPage.drawText(fieldData.fullName, {
+        x: 100,
+        y: 600,
+        size: 10,
+        color: rgb(0.95, 0.1, 0.1),
+    })
 
     // // Draw Date of Birth on the PDF
     // firstPage.drawText(fieldData.dateOfBirth, {
