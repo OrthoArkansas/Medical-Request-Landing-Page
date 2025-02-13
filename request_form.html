@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <!-- PDF Library Packaging -->
+    <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
     <title>OrthoArkansas | Medical Request Form</title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/CSS/styles.css">
@@ -33,12 +36,12 @@
                     <!-- Form Group Input -->
                     <div class="form-group">
                         <label class="required">Facility Name</label>
-                        <input type="text" required>
+                        <input id="facilityName" type="text" required>
                     </div>
                     <!-- Form Group Input -->
                     <div class="form-group">
                         <label class="required">Provider Name(s)</label>
-                        <input type="text" required>
+                        <input id="providerName" type="text" required>
                     </div>
                 </div>
             </div>
@@ -52,17 +55,17 @@
                     <!-- Name Group Input -->
                     <div class="form-group">
                         <label class="required">Full Name</label>
-                        <input type="text" required>
+                        <input id="fullName" type="text" required>
                     </div>
                     <!-- DOB Group Input -->
                     <div class="form-group">
                         <label class="required">DOB</label>
-                        <input type="date" required>
+                        <input id="dateOfBirth" type="date" required>
                     </div>
                     <!-- Phone Group Input -->
                     <div class="form-group">
                         <label class="required">Phone</label>
-                        <input type="tel" required>
+                        <input id="telephoneNumber" type="tel" required>
                     </div>
                 </div>
             </div>
@@ -156,7 +159,7 @@
                     <canvas id="signature-pad"></canvas>
                     <div class="signature-actions">
                         <button type="button" id="clear">Clear</button>
-                        <button type="submit" id="submit">Submit Authorization</button>
+                        <button type="submit" id="submit" onclick="modifyPdf()">Submit Authorization</button>
                     </div>
                 </div>
             </div>
@@ -164,7 +167,8 @@
     </div>
 
     <!-- JavaScript File -->
-     <script src="assets/JS/main.js"></script>
+    <script src="assets/JS/main.js"></script>
+    <script src="assets/JS/form.js"></script>
 </body>
 
 </html>
