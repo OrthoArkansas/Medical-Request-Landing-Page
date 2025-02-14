@@ -44,6 +44,25 @@ body {
     border-radius: .5rem;
 }
 
+select {
+    width: 100%; /* Full width on smaller screens */
+    max-width: 400px; /* Limits width on larger screens */
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Style on hover/focus */
+select:hover,
+select:focus {
+    border-color: var(--orange);
+    outline: none;
+}
+
 /* From Uiverse.io by alexroumi */ 
 button {
     padding: 10px 20px;
@@ -132,6 +151,15 @@ button {
 @media screen and (min-width: 640px) {
     .form-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    select {
+        max-width: 350px;
+        
+    }
+
+    .form-section .input-container {
+        max-width: 300px;
     }
 }
 
