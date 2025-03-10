@@ -17,154 +17,40 @@
 
 <body>
 
-    <!-- Form Container TESTING -->
     <div class="form-container">
         <!-- Form Logo -->
-        <div class="form-logo">
-            <img src="assets/Images/Ortho Logo Sideways.png" alt="OrthoArkansas Logo">
-        </div>
-        <!-- Form Title -->
-        <h1 class="form-title">Medical Request Authorization Form</h1>
-        <!-- Medical Release Form Start -->
-        <form action="#" id="medicalReleaseForm">
-            <!-- Form Section 1 -->
-            <div class="form-section">
-                <!-- Form Sub Heading -->
-                <h2 class="section-title">Facility of release?</h2>
-                <!-- Section 1 Form Grid -->
-                <div class="form-grid">
-                    <!-- Form Group Input -->
-                    <div class="release-methods">
-                        <label class="required" for="options">Facility:</label>
-                        <select id="options" name="options" onChange="showInputField()">
-                            <option value="option1" selected>-- Select --</option>
-                            <option value="option1">OrthoArkansas, PA</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+        <header class="logo">
+            <img src="assets/Images/Ortho Logo Sideways.png" alt="">
+            <!-- Form Title -->
+            <h1 class="form-title">Medical Release Authorization Form</h1>
+        </header>
 
-            <!-- Form Section 2 -->
-            <div class="form-section">
-                <!-- Form Sub Heading -->
-                <h2 class="section-title">Provide patient details</h2>
-                <!-- Section 2 Form Grid -->
-                <div class="form-grid">
-                    <!-- Name Group Input -->
-                    <div class="form-group">
-                        <label class="required">Name</label>
-                        <input id="fullName" type="text" required>
-                    </div>
-                    <!-- DOB Group Input -->
-                    <div class="form-group">
-                        <label class="required">DOB</label>
-                        <input id="dateOfBirth" type="date" required>
-                    </div>
-                    <!-- Phone Group Input -->
-                    <div class="form-group">
-                        <label class="required">Phone</label>
-                        <input id="telephoneNumber" type="tel" required>
-                    </div>
-                     <!-- Email Group Input -->
-                     <div class="form-group">
-                        <label class="required">Email</label>
-                        <input id="email" type="email" name="email" required>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Form Section 3 -->
-            <div class="form-section">
-                <!-- Form Sub Heading -->
-                <h2 class="section-title">Choose records to release:</h2>
-                <!-- Checkbox Grid -->
-                <div class="checkbox-grid">
-                    <!--Checkbox items -->
-                    <!-- All Records -->
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="allRecords">
-                        <label for="allRecords">All Records</label>
-                    </div>
-                    <!-- Office/Clinic Notes -->
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="officeNotes">
-                        <label for="officeNotes">Office/Clinic Notes</label>
-                    </div>
-                    <!-- Operative Reports -->
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="operativeReports">
-                        <label for="operativeReports">Operative Reports</label>
-                    </div>
-                    <!-- Images -->
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="images">
-                        <label for="images">Images (X-Ray, MRI, etc.)</label>
-                    </div>
-                    <!-- Lab Results -->
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="labResults">
-                        <label for="labResults">Lab/Pathology Results</label>
-                    </div>
-                    <!-- Radiology Reports -->
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="radiologyReports">
-                        <label for="radiologyReports">Radiology Reports</label>
-                    </div>
-                    <!-- Previous Records -->
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="previousRecords">
-                        <label for="previousRecords">Last two years of records</label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Form Section 4 -->
-            <div class="form-section">
-                <!-- Form Sub Heading-->
-                <h2 class="section-title">Delivery Methods</h2>
-                <!-- Delivery Methods -->
-                <div class="delivery-methods">
-                    <label class="required" for="options">Choose an option:</label>
-                    <select id="options" name="options" onChange="showInputField()">
-                        <option value="option1" selected>-- Select --</option>
-                        <option value="option1">Email</option>
-                        <option value="option1">Fax</option>
-                        <option value="option1">Postage</option>
+        <main class="form">
+            <form action="">
+                <!-- Section 1: Release of Forms -->
+                <div class="form-section">
+                    <h2 class="section-heading">Where are records being release from?</h2>
+                    <label for="record-source">Facility:</label>
+                    <select name="record-source" id="record-source">
+                        <option value="">Select a facility</option>
+                        <option value="orthoarkansas">OrthoArkansas, PA</option>
                     </select>
                 </div>
 
-                 <!-- Input Container -->
-                 <div id="inputContainer">
-                    <label class="required" id="dynamicLabel" for="userInput"></label>
-                    <input type="text" id="userInput" name="userInput" required>
-                 </div>
-            </div>
+                <hr>
 
-            <!-- Signature Section -->
-            <div class="section signature-section">
-                <!-- Signature Sub Heading -->
-                <h2 class="section-title">Patient's Signature</h2>
-                <!-- Disclaimer -->
-                <p class="disclaimer">
-                    I hereby authorize MediCopy and its affiliates to release or disclose to the person(s) or
-                    organization listed above, all medical records requested, including any specially protected records
-                    such as those relating to psychological or psychiatric impairments, drug abuse, alcoholism, sickle
-                    cell anemia or HIV infection, unless otherwise noted.
-                </p>
-
-                <!-- Signature Pad Container -->
-                <div class="signature-component">
-                    <p class="signature-prompt">
-                        Please sign below using mouse, touch, or stylus
-                    </p>
-                    <canvas id="signature-pad"></canvas>
-                    <div class="signature-actions">
-                        <button type="button" id="clear">Clear</button>
-                        <button type="submit" id="submit" onclick="modifyPdf()">Submit Authorization</button>
+                <!-- Section 2: Patient Information -->
+                 <div class="form-section">
+                    <h2 class="section-heading">Tell us about the patient:</h2>
+                    <div class="form-grid">
+                        <div>
+                            <label class="required" for="full-name">Full Name</label>
+                            <input type="text" id="full-name" name="full-name" required>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </form>
+                 </div>
+            </form>
+        </main>
     </div>
 
     <!-- JavaScript File -->

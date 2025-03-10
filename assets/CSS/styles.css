@@ -20,6 +20,11 @@ body {
     background-color: var(--white);
 }
 
+img {
+    max-width: 250px;
+    height: auto;
+}
+
 /* ========== Root Variables ========== */
 :root {
     /* ========== Colors ========== */
@@ -31,243 +36,26 @@ body {
 }
 
 /* ========== Reusable CSS ========== */
-.form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    background: var(--white);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    padding: 1rem;
-    border-radius: .5rem;
-}
-
-select {
-    width: 100%; /* Full width on smaller screens */
-    max-width: 400px; /* Limits width on larger screens */
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Style on hover/focus */
-select:hover,
-select:focus {
-    border-color: var(--orange);
-    outline: none;
-}
-
-/* From Uiverse.io by alexroumi */ 
-button {
-    padding: 10px 20px;
-    border: unset;
-    border-radius: 15px;
-    color: var(--white);
-    z-index: 1;
-    background: var(--dark-blue);
-    position: relative;
-    font-weight: 600;
-    font-size: 17px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    transition: all 250ms;
-    overflow: hidden;
-   }
-   
-   button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    border-radius: 15px;
-    background-color: var(--blue);
-    z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    transition: all .4s;
-   }
-   
-   button:hover {
-    color: #e8e8e8;
-   }
-   
-   button:hover::before {
-    width: 100%;
-   }
-
-/* ========== Form ========== */
-.form-logo img {
-    max-width: 50%;
-    height: auto;
-    margin-bottom: 1rem;
-}
-
-.form-logo {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-.form-title {
-    color: var(--text-color);
-    font-size: 2rem;
-}
-
-.form-section {
-    padding: .5rem;
-    margin-bottom: 1rem;
-    border-radius: 1rem;
-}
-
-.section-title {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-}
-
-.form-section .section-title{
-    background-color: var(--dark-blue);
-    color: var(--white);
-    /* padding in this order: top | right | bottom | left */
-    padding: .5rem 0 .5rem .5rem;
-    border-radius: 5px;
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-}
-
-@media screen and (min-width: 640px) {
-    .form-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    select {
-        max-width: 350px;
-        
-    }
-
-    .form-section .input-container {
-        max-width: 300px;
-    }
-}
-
-.form-group {
-    margin-bottom: 10px;
-}
-
-.label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
 .required::after {
     content: '*';
     color: red;
     margin-left: 4px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="date"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid var(--text-color);
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-.checkbox-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-}
-
-.delivery-methods {
+header {
     display: flex;
-    gap: 1rem;
-    /* justify-content: center;
-    align-items: center; */
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: greenyellow;
 }
 
-#inputContainer {
-    display: none;
-    margin-top: 1rem;
+img {
+    max-width: 250px;
+    height: auto;
 }
 
+/* ===== Form CSS ===== */
 
-.disclaimer {
-    font-size: .9em;
-    margin: 1rem 0;
-    color: var(--text-color);
-}
 
-.signature-component {
-    max-width: 100%;
-    margin: 1rem auto;
-}
-
-#signature-pad {
-    width: 100%;
-    height: 200px;
-    border: 1px solid var(--text-color);
-    border-radius: 4px;
-    background-color: var(--white);
-    touch-action: none;
-}
-
-.signature-actions {
-    display: flex;
-    justify-content: flex-start;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.signature-prompt {
-    text-align: center;
-    color: red;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-}
-
-/* Responsive Queries */
-@media screen and (min-width: 640px) {
-    .checkbox-grid {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .checkbox-item {
-        display: flex;
-        align-items: center;
-        gap: .5rem;
-    }
-}
-
-@media screen and (max-width: 640px) {
-    .form-title {
-        font-size: 1.2rem;
-        text-align: center;
-    }
-
-    .section-title {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-        color: var(--text-color);
-    }
-}
-/* End Responsive Queries */
