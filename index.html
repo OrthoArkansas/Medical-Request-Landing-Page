@@ -30,7 +30,7 @@
             <!-- Form Section 1 -->
             <div class="form-section">
                 <!-- Form Sub Heading -->
-                <h2 class="section-title">Where Should Records Be Released From?</h2>
+                <h2 class="section-title">Select facility with your records:</h2>
                 <!-- Section 1 Form Grid -->
                 <div class="form-grid">
                     <!-- Form Group Input -->
@@ -47,7 +47,7 @@
             <!-- Form Section 2 -->
             <div class="form-section">
                 <!-- Form Sub Heading -->
-                <h2 class="section-title">Provide patient details</h2>
+                <h2 class="section-title">Provide patient details:</h2>
                 <!-- Section 2 Form Grid -->
                 <div class="form-grid">
                     <!-- Name Group Input -->
@@ -65,8 +65,8 @@
                         <label class="required">Phone</label>
                         <input id="telephoneNumber" type="tel" required>
                     </div>
-                     <!-- Email Group Input -->
-                     <div class="form-group">
+                    <!-- Email Group Input -->
+                    <div class="form-group">
                         <label class="required">Email</label>
                         <input id="email" type="email" name="email" required>
                     </div>
@@ -76,7 +76,36 @@
             <!-- Form Section 3 -->
             <div class="form-section">
                 <!-- Form Sub Heading -->
-                <h2 class="section-title">Choose records to release:</h2>
+                <h2 class="section-title">What facility is receiving your records?</h2>
+                <!-- Section 2 Form Grid -->
+                <div class="form-grid">
+                    <!-- Recipient Name -->
+                    <div class="form-group">
+                        <label class="required">Facility Name</label>
+                        <input id="fullName" type="text" required>
+                    </div>
+                    <!-- Recipient Phone -->
+                    <div class="form-group">
+                        <label class="required">Facility Phone</label>
+                        <input id="telephoneNumber" type="tel" required>
+                    </div>
+                    <!-- Recipient Email -->
+                    <div class="form-group">
+                        <label>Facility Email</label>
+                        <input id="email" type="email" name="email" required>
+                    </div>
+                    <!-- Recipient Fax -->
+                    <div class="form-group">
+                        <label>Facility Address</label>
+                        <input id="fax" type="text" name="address" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Section 4 -->
+            <div class="form-section">
+                <!-- Form Sub Heading -->
+                <h2 class="section-title">Choose the records you want released:</h2>
                 <!-- Checkbox Grid -->
                 <div class="checkbox-grid">
                     <!--Checkbox items -->
@@ -118,26 +147,26 @@
                 </div>
             </div>
 
-            <!-- Form Section 4 -->
+            <!-- Form Section 5 -->
             <div class="form-section">
                 <!-- Form Sub Heading-->
-                <h2 class="section-title">Delivery Methods</h2>
+                <h2 class="section-title">How would you like the records delivered?</h2>
                 <!-- Delivery Methods -->
                 <div class="delivery-methods">
                     <label class="required" for="options">Choose an option:</label>
-                    <select id="options" name="options" onChange="showInputField()">
-                        <option value="option1" selected>-- Select --</option>
-                        <option value="option1">Email</option>
-                        <option value="option1">Fax</option>
-                        <option value="option1">Postage</option>
+                    <select id="options" name="options">
+                        <option value="" selected></option>
+                        <option value="email">Email</option>
+                        <option value="fax">Fax</option>
+                        <option value="postage">Postage</option>
                     </select>
                 </div>
 
-                 <!-- Input Container -->
-                 <div id="inputContainer">
+                <!-- Input Container -->
+                <div id="inputContainer">
                     <label class="required" id="dynamicLabel" for="userInput"></label>
                     <input type="text" id="userInput" name="userInput" required>
-                 </div>
+                </div>
             </div>
 
             <!-- Signature Section -->

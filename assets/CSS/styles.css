@@ -45,8 +45,10 @@ body {
 }
 
 select {
-    width: 100%; /* Full width on smaller screens */
-    max-width: 400px; /* Limits width on larger screens */
+    width: 100%;
+    /* Full width on smaller screens */
+    max-width: 400px;
+    /* Limits width on larger screens */
     padding: 10px;
     font-size: 16px;
     border: 2px solid #ccc;
@@ -63,7 +65,7 @@ select:focus {
     outline: none;
 }
 
-/* From Uiverse.io by alexroumi */ 
+/* From Uiverse.io by alexroumi */
 button {
     padding: 10px 20px;
     border: unset;
@@ -74,13 +76,13 @@ button {
     position: relative;
     font-weight: 600;
     font-size: 17px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all 250ms;
     overflow: hidden;
-   }
-   
-   button::before {
+}
+
+button::before {
     content: "";
     position: absolute;
     top: 0;
@@ -90,18 +92,18 @@ button {
     border-radius: 15px;
     background-color: var(--blue);
     z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
     transition: all .4s;
-   }
-   
-   button:hover {
+}
+
+button:hover {
     color: #e8e8e8;
-   }
-   
-   button:hover::before {
+}
+
+button:hover::before {
     width: 100%;
-   }
+}
 
 /* ========== Form ========== */
 .form-logo img {
@@ -134,7 +136,7 @@ button {
     color: var(--text-color);
 }
 
-.form-section .section-title{
+.form-section .section-title {
     background-color: var(--dark-blue);
     color: var(--white);
     /* padding in this order: top | right | bottom | left */
@@ -155,7 +157,7 @@ button {
 
     select {
         max-width: 350px;
-        
+
     }
 
     .form-section .input-container {
@@ -270,4 +272,5 @@ input[type="date"] {
         color: var(--text-color);
     }
 }
+
 /* End Responsive Queries */
