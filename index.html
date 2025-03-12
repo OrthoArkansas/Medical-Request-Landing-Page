@@ -18,39 +18,155 @@
 <body>
 
     <div class="form-container">
-        <!-- Form Logo -->
-        <header class="logo">
+        <div class="form-header">
             <img src="assets/Images/Ortho Logo Sideways.png" alt="">
-            <!-- Form Title -->
-            <h1 class="form-title">Medical Release Authorization Form</h1>
-        </header>
+            <h1 class="form-title">Medical Records Release Authorization</h1>
+        </div>
 
-        <main class="form">
-            <form action="">
-                <!-- Section 1: Release of Forms -->
-                <div class="form-section">
-                    <h2 class="section-heading">Where are records being release from?</h2>
-                    <label for="record-source">Facility:</label>
-                    <select name="record-source" id="record-source">
-                        <option value="">Select a facility</option>
-                        <option value="orthoarkansas">OrthoArkansas, PA</option>
-                    </select>
-                </div>
-
-                <hr>
-
-                <!-- Section 2: Patient Information -->
-                 <div class="form-section">
-                    <h2 class="section-heading">Tell us about the patient:</h2>
-                    <div class="form-grid">
-                        <div>
-                            <label class="required" for="full-name">Full Name</label>
-                            <input type="text" id="full-name" name="full-name" required>
+        <form id="medical-release-form">
+            <!-- Section 1: Patient Information -->
+            <div class="form-section">
+                <h2 class="section-header">Patient Information:</h2>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label class="required" for="patient-name">Full Name</label>
+                            <input type="text" id="patient-name" name="patient-name" required>
                         </div>
                     </div>
-                 </div>
-            </form>
-        </main>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Section 2: Facility Information -->
+            <div class="form-section">
+                <h2 class="section-header">Facility Receiving Records:</h2>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="facility-name">Facility/Provider Name</label>
+                            <input type="text" id="facility-name" name="facility-name" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="facility-phone">Phone Number</label>
+                            <input type="tel" id="facility-phone" name="facility-phone" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="facility-fax">Fax Number</label>
+                            <input type="tel" id="facility-fax" name="facility-fax">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="facility-address">Facility Address</label>
+                            <input type="text" id="facility-address" name="facility-address" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Section 3: Records to be released -->
+            <div class="form-section">
+                <h2 class="section-header">Select records to be released:</h2>
+                <div class="checkbox-group">
+                    <!-- Checkbox item 1 -->
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="all" name="records[]" value="all">
+                        <label for="all">All Records</label>
+                    </div>
+                    <!-- Checkbox item 2 -->
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="notes" name="records[]" value="notes">
+                        <label for="notes">Office/Clinic Notes</label>
+                    </div>
+                    <!-- Checkbox item 3 -->
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="operative" name="records[]" value="operative">
+                        <label for="operative">Operative Reports</label>
+                    </div>
+                    <!-- Checkbox item 4 -->
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="imaging" name="records[]" value="imaging">
+                        <label for="imaging">Images (X-Ray, MRI, Etc.)</label>
+                    </div>
+                    <!-- Checkbox item 5 -->
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="labs" name="records[]" value="labs">
+                        <label for="labs">Lap/Pathology Results</label>
+                    </div>
+                    <!-- Checkbox item 6 -->
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="radiology" name="records[]" value="radiology">
+                        <label for="radiology">Radiology Reports</label>
+                    </div>
+                    <!-- Checkbox item 7 -->
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="previous-records" name="records[]" value="previous-records">
+                        <label for="previous-records">Last two years of records</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Section 4: Delivery Methods -->
+            <div class="form-section">
+                <h2 class="section-header">Delivery Method</h2>
+                <p class="section-subheader">Please select how you would like your records to be delivered:</p>
+                <div class="form-group">
+                    <select id="delivery-method" name="delivery-method" required>
+                        <option value="" disabled selected>Select delivery method</option>
+                        <option value="mail">Postage</option>
+                        <option value="fax">Fax</option>
+                        <option value="email">Email</option>
+                        <option value="pickup">In-Person Pickup</option>
+                        <option value="patient-portal">Patient Portal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="delivery-notes">Additional Delivery Instructions</label>
+                    <textarea id="delivery-notes" name="delivery-notes" rows="2"></textarea>
+                </div>
+            </div>
+            <!-- Section 5: Patient Authorization -->
+            <div class="form-section">
+                <h2 class="section-header">Patient Authorization</h2>
+                <p class="section-subheader">By signing below, I authorize the release of my medical records as
+                    specified above. I understand that this authorization is valid for 90 days from the date of
+                    signature.</p>
+                <div class="form-group">
+                    <label for="signature-canvas">Patient Signature</label>
+                    <canvas id="signature-canvas"></canvas>
+                </div>
+                <div class="form-group">
+                    <label for="signature-date">Date</label>
+                    <input type="date" id="signature-date" name="signature-date" required>
+                </div>
+            </div>
+            <!-- Buttons -->
+            <div class="button-group">
+                <button type="button" id="clear-signature" class="secondary">Clear Signature</button>
+                <button type="submit" class="primary">Submit Form</button>
+            </div>
+        </form>
     </div>
 
     <!-- JavaScript File -->

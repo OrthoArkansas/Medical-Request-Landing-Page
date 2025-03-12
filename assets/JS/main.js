@@ -1,149 +1,80 @@
-class SignaturePad {
-    constructor(canvas) {
-        this.canvas = canvas;
-        this.ctx = canvas.getContext('2d');
-        this.isDrawing = false;
-        this.points = [];
-        
-        // Set canvas size once
-        this.setCanvasSize();
-        
-        // Bind events
-        this.bindEvents();
-        
-        // Drawing style
-        this.ctx.strokeStyle = '#000';
-        this.ctx.lineWidth = 2;
-        this.ctx.lineCap = 'round';
-        this.ctx.lineJoin = 'round';
-    }
-
-    setCanvasSize() {
-        // Set the canvas dimensions to match CSS size
-        const rect = this.canvas.getBoundingClientRect();
-        this.canvas.width = rect.width;
-        this.canvas.height = rect.height;
-    }
-
-    bindEvents() {
-        // Mouse events
-        this.canvas.addEventListener('mousedown', this.handleStart.bind(this));
-        this.canvas.addEventListener('mousemove', this.handleMove.bind(this));
-        this.canvas.addEventListener('mouseup', this.handleEnd.bind(this));
-        this.canvas.addEventListener('mouseout', this.handleEnd.bind(this));
-
-        // Touch events
-        this.canvas.addEventListener('touchstart', this.handleStart.bind(this));
-        this.canvas.addEventListener('touchmove', this.handleMove.bind(this));
-        this.canvas.addEventListener('touchend', this.handleEnd.bind(this));
-    }
-
-    handleStart(event) {
-        event.preventDefault();
-        const pos = this.getPointerPosition(event);
-        this.isDrawing = true;
-        this.points = [pos];
-        this.ctx.beginPath();
-        this.ctx.moveTo(pos.x, pos.y);
-    }
-
-    handleMove(event) {
-        event.preventDefault();
-        if (!this.isDrawing) return;
-        
-        const pos = this.getPointerPosition(event);
-        this.points.push(pos);
-        
-        if (this.points.length > 3) {
-            const lastTwoPoints = this.points.slice(-2);
-            const controlPoint = lastTwoPoints[0];
-            const endPoint = {
-                x: (lastTwoPoints[0].x + lastTwoPoints[1].x) / 2,
-                y: (lastTwoPoints[0].y + lastTwoPoints[1].y) / 2,
-            };
-            
-            this.ctx.quadraticCurveTo(
-                controlPoint.x,
-                controlPoint.y,
-                endPoint.x,
-                endPoint.y
-            );
-            this.ctx.stroke();
-            
-            this.ctx.beginPath();
-            this.ctx.moveTo(endPoint.x, endPoint.y);
-        }
-    }
-
-    handleEnd(event) {
-        event.preventDefault();
-        this.isDrawing = false;
-        this.points = [];
-    }
-
-    getPointerPosition(event) {
-        const rect = this.canvas.getBoundingClientRect();
-        const point = event.touches ? event.touches[0] : event;
-        return {
-            x: (point.clientX - rect.left),
-            y: (point.clientY - rect.top)
-        };
-    }
-
-    clear() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    }
-
-    isEmpty() {
-        const pixels = this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height).data;
-        return !pixels.some(pixel => pixel !== 0);
-    }
-
-    toDataURL() {
-        return this.canvas.toDataURL('image/png');
-    }
-}
-
-// Initialize signature pad when DOM is loaded
+// Signature pad functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const canvas = document.getElementById('signature-pad');
-    const signaturePad = new SignaturePad(canvas);
-    const clearButton = document.getElementById('clear');
-    const form = document.getElementById('medicalReleaseForm');
-
-    // Clear button handler
-    clearButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        signaturePad.clear();
+    const canvas = document.getElementById('signature-canvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+    
+    // Set canvas dimensions based on its display size
+    function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'black';
+    }
+    
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    
+    // Drawing functionality
+    function startDrawing(e) {
+        isDrawing = true;
+        draw(e);
+    }
+    
+    function stopDrawing() {
+        isDrawing = false;
+        ctx.beginPath();
+    }
+    
+    function draw(e) {
+        if (!isDrawing) return;
+        
+        // Get correct coordinates for both mouse and touch
+        const clientX = e.clientX || e.touches[0].clientX;
+        const clientY = e.clientY || e.touches[0].clientY;
+        
+        const rect = canvas.getBoundingClientRect();
+        const x = clientX - rect.left;
+        const y = clientY - rect.top;
+        
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+    }
+    
+    // Mouse events
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseout', stopDrawing);
+    
+    // Touch events for mobile
+    canvas.addEventListener('touchstart', startDrawing);
+    canvas.addEventListener('touchmove', draw);
+    canvas.addEventListener('touchend', stopDrawing);
+    
+    // Clear signature button
+    document.getElementById('clear-signature').addEventListener('click', function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
-
-    // Form submission handler
-    form.addEventListener('submit', function(e) {
+    
+    // Form submission
+    document.getElementById('medical-release-form').addEventListener('submit', function(e) {
         e.preventDefault();
-
-        // Check if signature is empty
-        if (signaturePad.isEmpty()) {
-            alert('Please provide a signature');
+        
+        // Check if signature exists
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        const isEmpty = !imageData.some(channel => channel !== 0);
+        
+        if (isEmpty) {
+            alert('Please sign the form before submitting.');
             return;
         }
-
-        // Get the signature data URL
-        const signatureData = signaturePad.toDataURL();
-
-        // Here you can add the signature data to your form submission
-        // For example, you could add it to a hidden input:
-        let signatureInput = document.getElementById('signature-data');
-        if (!signatureInput) {
-            signatureInput = document.createElement('input');
-            signatureInput.type = 'hidden';
-            signatureInput.id = 'signature-data';
-            signatureInput.name = 'signature';
-            form.appendChild(signatureInput);
-        }
-        signatureInput.value = signatureData;
-
-        // Proceed with form submission
+        
+        // Here you would normally send the form data to your server
+        // For this demo, just show a success message
         alert('Form submitted successfully!');
-        // You can add your form submission logic here
     });
 });

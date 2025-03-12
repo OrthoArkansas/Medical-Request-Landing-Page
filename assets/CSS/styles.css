@@ -18,6 +18,7 @@ body {
     line-height: 1.5;
     padding: 1rem;
     background-color: var(--white);
+    color: var(--text-color);
 }
 
 img {
@@ -35,27 +36,158 @@ img {
     --text-color: #202020;
 }
 
-/* ========== Reusable CSS ========== */
+/* ========== Form CSS ========== */
+img {
+    max-width: 250px;
+    height: auto;
+}
+
 .required::after {
     content: '*';
     color: red;
     margin-left: 4px;
 }
 
-header {
+.form-container {
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-header {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+h1.form-title {
+    font-size: 1.4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.form-section {
+    margin-bottom: 2rem;
     padding: 1rem;
-    background-color: greenyellow;
+    border-bottom: 1px solid var(--dark-blue);
 }
 
-img {
-    max-width: 250px;
-    height: auto;
+.section-header {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
 }
 
-/* ===== Form CSS ===== */
+.form-group {
+    margin-bottom: 1rem;
+    padding: .1rem;
+}
 
+label {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-item {
+    flex-basis: 50%;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-item input {
+    margin-right: 1rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+}
+
+.col {
+    flex: 1;
+    padding: 0 1rem;
+    min-width: 250px;
+}
+
+/* Canvas signature area */
+#signature-canvas {
+    width: 100%;
+    height: 150px;
+    border: 1px solid var(--text-color);
+    background-color: var(--white);
+    touch-action: none;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+
+button {
+    padding: .5rem .5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.primary,
+.secondary {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .col {
+        flex: 0 0 100%;
+    }
+
+    .checkbox-item {
+        flex-basis: 100%;
+    }
+
+    .form-container {
+        padding: 2rem 1rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
 
